@@ -1,0 +1,127 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal gigante */
+        .contenedor-gigante {
+            display: flex;
+            width: 95%; /* Ocupa casi todo el ancho de la pantalla */
+            max-width: 1600px; /* Límite máximo para pantallas muy grandes */
+            min-height: 80vh; /* Altura mínima del 80% de la ventana del navegador */
+            background-color: #ffffff;
+            border-radius: 20px; /* Bordes más redondeados */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Columnas al 50% cada una */
+        .columna-imagen, 
+        .columna-texto {
+            flex: 1;
+            width: 50%;
+        }
+
+        /* Lado de la Imagen */
+        .columna-imagen {
+            background-color: #e0e0e0;
+            position: relative;
+        }
+
+        .columna-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
+            display: block;
+        }
+
+        /* Lado del Texto (Agrandado) */
+        .columna-texto {
+            padding: 5rem 4rem; /* Mucho más espacio alrededor del texto */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+        }
+
+        /* Título más grande e imponente */
+        .columna-texto h2 {
+            font-size: 45px; /* Tamaño de letra gigante */
+            font-weight: 800;
+            line-weight: 1.2;
+            margin-bottom: 2rem;
+            color: #111;
+            letter-spacing: -1px;
+            
+        }
+
+        /* Párrafo con más cuerpo y legibilidad */
+        .columna-texto p {
+            font-size: 1.25rem; /* Texto más grande */
+            line-height: 1.8; /* Más espacio entre líneas */
+            color: #555;
+            max-width: 650px; /* Evita que las líneas de texto sean infinitas y cansen la vista */
+        }
+
+        /* Adaptación para pantallas medianas y móviles */
+        @media (max-width: 1024px) {
+            .columna-texto h2 {
+                font-size: 2.5rem;
+            }
+            .columna-texto {
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-gigante {
+                flex-direction: column; /* Se apila en vertical en celulares */
+                min-height: auto;
+                margin: 20px 0;
+            }
+
+            .columna-imagen, 
+            .columna-texto {
+                width: 100%;
+            }
+
+            .columna-imagen {
+                height: 400px; /* Altura generosa para la foto en móvil */
+            }
+
+            .columna-texto {
+                padding: 3rem 2rem;
+            }
+
+            .columna-texto h2 {
+                font-size: 2.2rem;
+            }
+        }
+        .btn-explore{
+            width: 170px;
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 12pt;
+            font-weight: 600;
+            padding: 14px 45px;
+            text-decoration: none;
+            border-radius: 30px; /* Estilo píldora idéntico al botón Explore de la imagen */
+            transition: background-color 0.2s;}
+            .btn-explore:hover{
+                background-color: #ffffff;
+                color: #000000;
+                border: 2px solid #000000;
+                border-radius: 30px;
+            }

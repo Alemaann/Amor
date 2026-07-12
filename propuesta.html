@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* El recuadro contenedor principal */
+        .proposal-box {
+            border: 1px solid rgb(163, 163, 163) ;
+            border-radius: 30px;
+            box-shadow: #000000;
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 450px;
+            padding: 50px 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Pregunta principal */
+        .proposal-question {
+            font-family: 'Georgia', serif;
+            font-size: 20pt;
+            font-style: italic;
+            line-height: 1.4;
+            margin: 0;
+            color: #000000;
+        }
+
+        /* Contenedor de los botones */
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            height: 50px;
+            position: relative;
+        }
+
+        /* Estilo base de los botones */
+        .btn-choice {
+            font-size: 12pt;
+            font-weight: 500;
+            padding: 12px 35px;
+            border-radius: 4px; /* Bordes sutiles y limpios */
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+
+        /* Botón SÍ: Negro con texto blanco */
+        .btn-yes {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1.5px solid #000000;
+        }
+
+        .btn-yes:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Botón NO: Contorno negro, se moverá dinámicamente */
+        .btn-no {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1.5px solid #000000;
+            position: relative;
+            transition: all 0.15s ease;
+        }
+
+        .btn-no:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Recuadro central -->
+    <div class="proposal-box">
+        
+        <h1 class="proposal-question" id="text-proposal">
+            ¿Quieres darme el honor de ser tu novio?
+        </h1>
+
+        <!-- Contenedor con los dos botones -->
+        <div class="buttons-wrapper">
+            <button class="btn-choice btn-yes" onclick="celebrateSuccess()">Sí</button>
+            <button class="btn-choice btn-no" id="btn-escape" onmouseover="escapeButton()" onclick="escapeButton()">No</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Función para hacer que el botón "No" escape de forma aleatoria por la pantalla
+        function escapeButton() {
+            const button = document.getElementById('btn-escape');
+            
+            button.style.position = 'fixed';
+            
+            // Límite de la pantalla para que no se oculte fuera de los bordes
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+
+        // Función que se activa al dar clic en "Sí"
+        function celebrateSuccess() {
+            const proposalText = document.getElementById('text-proposal');
+            const buttonsWrapper = document.querySelector('.buttons-wrapper');
+            
+            // Actualiza el texto dentro del recuadro
+            proposalText.innerHTML = "¡Sabía que dirías que sí! ♡<br>Prometo hacerte feliz siempre.";
+            
+            // Oculta los botones
+            buttonsWrapper.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
